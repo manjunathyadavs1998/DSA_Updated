@@ -7,88 +7,78 @@ import java.util.List;
 public class arrays {
 
 
-    public static int removeDuplicates(int[] arr, int n)
-    {   if(n==0)
+    public static int removeDuplicates(int[] arr, int n) {
+        if (n == 0)
             return 0;
 
-        int size=1;
-        for(int i=1; i<n; i++)
-        {
-            if(arr[i]!=arr[i-1])
-                size=size+1;
+        int size = 1;
+        for (int i = 1; i < n; i++) {
+            if (arr[i] != arr[i - 1])
+                size = size + 1;
         }
         return size;
 
     }
-    public static void moveZerosToEnd(int[] arr, int n)
-    {
-        if(n==0||n==1)
+
+    public static void moveZerosToEnd(int[] arr, int n) {
+        if (n == 0 || n == 1)
             return;
-        int count=0;
-        for(int i=0; i<n; i++)
-        {
-            if(arr[i]!=0)
-            {
-                int temp=arr[i];
-                arr[i]=arr[count];
-                arr[count]=temp;
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != 0) {
+                int temp = arr[i];
+                arr[i] = arr[count];
+                arr[count] = temp;
                 count++;
             }
         }
     }
 
-    public static  void leftRotateArrayByK(int[] arr, int n, int k)
-    {
-       reverse(arr,0, k-1);
-       reverse(arr,k, n-1);
-       reverse(arr, 0, n-1);
+    public static void leftRotateArrayByK(int[] arr, int n, int k) {
+        reverse(arr, 0, k - 1);
+        reverse(arr, k, n - 1);
+        reverse(arr, 0, n - 1);
 
     }
-    public static  void reverse(int[] arr, int low, int high)
-    {
-        while(low<high)
-        {
-            int temp=arr[high];
-            arr[high]=arr[low];
-            arr[low]=temp;
+
+    public static void reverse(int[] arr, int low, int high) {
+        while (low < high) {
+            int temp = arr[high];
+            arr[high] = arr[low];
+            arr[low] = temp;
             low++;
             high--;
         }
     }
-     public static List<Integer> leaders(int[] arr, int n)
-     {
-        List<Integer>a=new ArrayList<>();
-        a.add(arr[n-1]);
-        int curr=arr[n-1];
-        for(int i=n-2; i>=0; i--)
-        {
-            if(arr[i]>curr)
-            {
+
+    public static List<Integer> leaders(int[] arr, int n) {
+        List<Integer> a = new ArrayList<>();
+        a.add(arr[n - 1]);
+        int curr = arr[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            if (arr[i] > curr) {
                 a.add(arr[i]);
-                curr=arr[i];
+                curr = arr[i];
             }
         }
-         Collections.reverse(a);
+        Collections.reverse(a);
         return a;
-     }
+    }
 
-     public static  int Max1sinArray(int[] arr, int n)
-     {
-         int count=0;
-         int maxi=Integer.MIN_VALUE;
-         for(int i=0; i<n; i++)
-         {
-             if(arr[i]==1)
-                 count++;
-             maxi=Math.max(count, maxi);
-             if(arr[i]==0)
-                 count=0;
-         }
-         return maxi;
-     }
+    public static int Max1sinArray(int[] arr, int n) {
+        int count = 0;
+        int maxi = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 1)
+                count++;
+            maxi = Math.max(count, maxi);
+            if (arr[i] == 0)
+                count = 0;
+        }
+        return maxi;
+    }
 
-    public static  int maxSubArray(int[] arr, int n)
-    {
+    public static int maxSubArray(int[] arr, int n) {
 //        int maxEnd=arr[0];
 //        int res=arr[0];
 //        for(int i=1; i<n; i++)
@@ -102,13 +92,13 @@ public class arrays {
         int maxSum = Integer.MIN_VALUE;
         int currSum = 0;
 
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
 
             currSum = currSum + arr[i];
 
             maxSum = Math.max(currSum, maxSum);
 
-            if(currSum < 0) {
+            if (currSum < 0) {
 
                 currSum = 0;
             }
@@ -135,5 +125,35 @@ public class arrays {
 
         return ans;
 
+    }
+
+
+    public static int secondLargest(int[] arr, int n) {
+        int first=0, second=0;
+    if(arr[0]>arr[1])
+    {
+        first=arr[0];
+        second=arr[1];
+    }
+    else
+    {
+        first=arr[1];
+        second=arr[0];
+    }
+    for(int i=2; i<n; i++)
+    {
+        if(arr[i]>first)
+        {
+            second=first;
+            first=arr[i];
+        }
+        else if(arr[i]>second)
+        {
+            second=arr[i];
+        }
+    }
+    return  second;
+
+        //return 0;
     }
 }
