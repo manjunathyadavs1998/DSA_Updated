@@ -129,31 +129,64 @@ public class arrays {
 
 
     public static int secondLargest(int[] arr, int n) {
-        int first=0, second=0;
-    if(arr[0]>arr[1])
-    {
-        first=arr[0];
-        second=arr[1];
-    }
-    else
-    {
-        first=arr[1];
-        second=arr[0];
-    }
-    for(int i=2; i<n; i++)
-    {
-        if(arr[i]>first)
-        {
-            second=first;
-            first=arr[i];
+        int first = 0, second = 0;
+        if (arr[0] > arr[1]) {
+            first = arr[0];
+            second = arr[1];
+        } else {
+            first = arr[1];
+            second = arr[0];
         }
-        else if(arr[i]>second)
-        {
-            second=arr[i];
+        for (int i = 2; i < n; i++) {
+            if (arr[i] > first) {
+                second = first;
+                first = arr[i];
+            } else if (arr[i] > second) {
+                second = arr[i];
+            }
         }
-    }
-    return  second;
+        return second;
 
         //return 0;
+    }
+
+
+    public static int thirdLargest(int[] arr, int n) {
+        int first=0, second=0, third=0;
+        if (arr[0] > arr[1]) {
+            first = arr[0];
+            second = arr[1];
+        } else {
+            first = arr[1];
+            second = arr[0];
+        }
+        if(arr[2]>first)
+        {
+            third=second;
+            second=first;
+            first=arr[2];
+        }
+        else if(arr[2]>second)
+        {
+            third=second;
+            second=arr[2];
+        }
+
+        for(int i=3; i<n; i++)
+        {
+            if(arr[i]>first)
+            {
+                third=second;
+                second=first;
+                first=arr[i];
+            }
+            else if(arr[i]>second)
+            {
+                third=second;
+                second=arr[i];
+            }
+        }
+        return third;
+
     }
 }
