@@ -35,11 +35,27 @@ public class arrays {
     }
 
     public static void leftRotateArrayByK(int[] arr, int n, int k) {
+        k = k % n;
+        if(k < 0){
+            k += n;
+        }
         reverse(arr, 0, k - 1);
         reverse(arr, k, n - 1);
         reverse(arr, 0, n - 1);
 
     }
+    public static void rightRotateArrayByK(int[] arr, int n, int k) {
+        k = k % n;
+        if(k < 0){
+            k += n;
+        }
+        reverse(arr, n-k, n - 1);
+        reverse(arr, 0, n - k-1);
+        reverse(arr, 0, n - 1);
+
+    }
+
+
 
     public static void reverse(int[] arr, int low, int high) {
         while (low < high) {
@@ -185,6 +201,8 @@ public class arrays {
                 third=second;
                 second=arr[i];
             }
+            else if(arr[i]>third)
+                third=arr[i];
         }
         return third;
 
