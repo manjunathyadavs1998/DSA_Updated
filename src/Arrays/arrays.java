@@ -2,6 +2,7 @@ package Arrays;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class arrays {
@@ -36,7 +37,7 @@ public class arrays {
 
     public static void leftRotateArrayByK(int[] arr, int n, int k) {
         k = k % n;
-        if(k < 0){
+        if (k < 0) {
             k += n;
         }
         reverse(arr, 0, k - 1);
@@ -44,17 +45,17 @@ public class arrays {
         reverse(arr, 0, n - 1);
 
     }
+
     public static void rightRotateArrayByK(int[] arr, int n, int k) {
         k = k % n;
-        if(k < 0){
+        if (k < 0) {
             k += n;
         }
-        reverse(arr, n-k, n - 1);
-        reverse(arr, 0, n - k-1);
+        reverse(arr, n - k, n - 1);
+        reverse(arr, 0, n - k - 1);
         reverse(arr, 0, n - 1);
 
     }
-
 
 
     public static void reverse(int[] arr, int low, int high) {
@@ -168,7 +169,7 @@ public class arrays {
 
 
     public static int thirdLargest(int[] arr, int n) {
-        int first=0, second=0, third=0;
+        int first = 0, second = 0, third = 0;
         if (arr[0] > arr[1]) {
             first = arr[0];
             second = arr[1];
@@ -176,35 +177,124 @@ public class arrays {
             first = arr[1];
             second = arr[0];
         }
-        if(arr[2]>first)
-        {
-            third=second;
-            second=first;
-            first=arr[2];
-        }
-        else if(arr[2]>second)
-        {
-            third=second;
-            second=arr[2];
+        if (arr[2] > first) {
+            third = second;
+            second = first;
+            first = arr[2];
+        } else if (arr[2] > second) {
+            third = second;
+            second = arr[2];
         }
 
-        for(int i=3; i<n; i++)
-        {
-            if(arr[i]>first)
-            {
-                third=second;
-                second=first;
-                first=arr[i];
-            }
-            else if(arr[i]>second)
-            {
-                third=second;
-                second=arr[i];
-            }
-            else if(arr[i]>third)
-                third=arr[i];
+        for (int i = 3; i < n; i++) {
+            if (arr[i] > first) {
+                third = second;
+                second = first;
+                first = arr[i];
+            } else if (arr[i] > second) {
+                third = second;
+                second = arr[i];
+            } else if (arr[i] > third)
+                third = arr[i];
         }
         return third;
 
     }
+
+
+    public static int findMaxDiff(int[] arr, int n) {
+        int min=arr[0];
+        int max_diff= Integer.MIN_VALUE;
+
+        for(int i=1; i<n; i++)
+        {
+
+            max_diff=Math.max(arr[i]-min, max_diff);
+            if(arr[i]<min)
+                min=arr[i];
+
+        }
+    if(max_diff<=0)
+        return -1;
+    return max_diff;
+    }
+
+    public static int maxStockPrice(int[] arr, int n)
+    {
+        int max_profit=0;
+        for(int i=1; i<n; i++)
+        {
+            if(arr[i]>arr[i-1])
+            {
+                max_profit=max_profit+arr[i]-arr[i-1];
+            }
+        }
+        return  max_profit;
+    }
+
+    public static  int trappingRainWater(int[] arr, int n)
+    {
+        int left_max=arr[0];
+        int right_max=arr[n-1];
+        int i=0, j=n-1;
+        int res=0;
+        while(i<j)
+        {
+            left_max=Math.max(left_max, arr[i]);
+            right_max=Math.max(right_max, arr[j]);
+            if(left_max>right_max)
+            {
+                res+=right_max-arr[j];
+                j--;
+            }
+            else
+            {
+                res+=left_max-arr[i];
+                i++;
+            }
+        }
+        return  res;
+    }
+
+
+    public static  int countMaxOnes(int[] arr, int n)
+    {
+       int res= Integer.MIN_VALUE;
+       int count=0;
+       for(int i=0; i<n; i++)
+       {
+           if(arr[i]==0)
+               count=0;
+           else
+           {
+               count++;
+               res=Math.max(res, count);
+           }
+       }
+
+        return res;
+    }
+
+
+    public static int majorityElement(int[] arr, int n)
+    {
+        if(n==1)
+            return arr[0];
+        HashMap<Integer, Integer>hm=new HashMap<>();
+        for(int x:arr)
+        {
+            if(!hm.containsKey(x))
+                hm.put(x,1);
+            else{
+                hm.put(x, hm.get(x)+1);
+                if(hm.get(x)>n/2)
+                    return x;
+            }
+        }
+        return -1;
+    }
+
+
+
 }
+
