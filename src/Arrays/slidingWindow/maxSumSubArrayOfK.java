@@ -15,7 +15,7 @@ public class maxSumSubArrayOfK {
         for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
         System.out.println("Maximum number of ones in Binary Array");
-        System.out.println(arrays.maxSumSubArrayOfK(arr, n, k));
+//        System.out.println(arrays.maxSumSubArrayOfK(arr, n, k));
 
     }
 }

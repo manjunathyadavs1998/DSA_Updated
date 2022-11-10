@@ -14,12 +14,12 @@ public class findFirstNegativeOfSizeKSubarray {
         for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
         int k = sc.nextInt();
-        List<Integer>  integerList=arrays.findFirstNegativeOfSizeKSubarray(arr, n, k);
+        //List<Integer>  integerList=arrays.findFirstNegativeOfSizeKSubarray(arr, n, k);
 
 
-            for (Integer integer : integerList) {
-                System.out.print(integer+" ");
-            }
+            //for (Integer integer : integerList) {
+               // System.out.print(integer+" ");
+            //}
 
 
 
