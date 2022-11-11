@@ -294,24 +294,6 @@ public class arrays {
         return -1;
     }
 
-    public static  int maxSumSubArrayOfK(int[] arr, int n, int k)
-    {   int curr_sum=0;
-        for(int i=0; i<k; i++)
-            curr_sum+=arr[i];
-        int max_sum= curr_sum;
-        for(int i=k; i<n; i++)
-        {
-            curr_sum=curr_sum+(arr[i]-arr[i-k]);
-            max_sum=Math.max(max_sum, curr_sum);
-        }
-
-        return max_sum;
-
-
-        //return 0;
-
-
-    }
 
 
 
