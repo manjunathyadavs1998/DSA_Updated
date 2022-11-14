@@ -312,6 +312,29 @@ public class arrays {
         return res;
     }
 
+    public static  int StockBuyandSell_2(int[] arr, int n)
+    {
+       if(n<=1)
+           return 0;
+        int max_profit=0;
+        int buy=arr[0];
+        for(int i=1; i<n; i++)
+        {
+            if(buy>arr[i])
+            {
+                buy=arr[i];
+            }
+            else
+            {
+                int curr_price=arr[i]-buy;
+                max_profit=Math.max(curr_price, max_profit);
+            }
+
+        }
+        return max_profit;
+
+    }
+
 
 
 
