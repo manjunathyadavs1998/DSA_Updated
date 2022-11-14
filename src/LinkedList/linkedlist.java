@@ -153,6 +153,42 @@ public class linkedlist {
 //        System.out.println(a);
 //        System.out.println(b);
     }
+    public static int countnodes()
+    {   if(head==null)
+            return 0;
+        Node temp=head;
+        int count=0;
+        while(temp!=null)
+        {
+            count++;
+            temp=temp.next;
+        }
+        return count;
+
+    }
+
+    public static  void swapnodebyK(int left, int right)
+    {
+        int n=countnodes();
+        Node leftprevnode=head;
+        Node rightnode=head;
+        while(--left>1)
+        {
+            leftprevnode=leftprevnode.next;
+        }
+        int right1=n-right+1;
+        while(--right1>0)
+            rightnode=rightnode.next;
+        Node leftnode=leftprevnode.next;
+        Node rightprevnode=rightnode.next;
+
+        System.out.println(leftprevnode.data+" "+leftnode.data);
+        System.out.println(rightprevnode.data+" "+rightnode.data);
+
+
+
+        //System.out.println(n);
+    }
 
 
 

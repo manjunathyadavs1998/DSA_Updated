@@ -294,7 +294,23 @@ public class arrays {
         return -1;
     }
 
+    public static int maximumdistance(int[] arr, int n)
+    {
+        HashMap<Integer, Integer>hm=new HashMap<>();
+        int res=0;
+        for(int i=0; i<n; i++)
+        {
+            if(!hm.containsKey(arr[i]))
+                hm.put(arr[i], i);
+            else
+            {
+                int curr=i-hm.get(arr[i])+1;
+                res=Math.max(curr, res);
+            }
 
+        }
+        return res;
+    }
 
 
 
