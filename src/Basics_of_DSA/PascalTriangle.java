@@ -40,5 +40,8 @@ public class PascalTriangle {
         }
         System.out.println(main_ls);
 
+        System.out.println((0+Integer.MAX_VALUE)+1);
+        System.out.println(Integer.MAX_VALUE);
+
     }
 }

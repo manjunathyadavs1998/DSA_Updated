@@ -335,6 +335,26 @@ public class arrays {
 
     }
 
+    public  static  int findsqrt(int n)
+    {
+        int low=0;
+        int high=10;
+        //int high=Integer.MAX_VALUE;
+        while(low<high)
+        {
+            int mid=(low+high)/2;
+            if(mid*mid==n)
+                return mid;
+            else if (mid*mid>n) {
+                high=mid-1;
+
+            }
+            else
+                low=low+1;
+        }
+        return 0;
+    }
+
 
 
 

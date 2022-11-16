@@ -4,6 +4,7 @@ package LinkedList;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Stack;
 
 public class linkedlist {
     static Node head=null;
@@ -188,6 +189,40 @@ public class linkedlist {
 
 
         //System.out.println(n);
+    }
+
+    public static void reverselinkedlistbyk(int k)
+    {
+        Node temp=head;
+        int len=0;
+        while(temp!=null) {
+            len++;
+            temp = temp.next;
+        }
+        int limit=(len/k)*k;
+        Node dummy1=head;
+        Node dummy2=head;
+        while(limit>0)
+        {
+            int m=0;
+            Stack<Integer>st=new Stack<Integer>();
+            while(m<k)
+            {
+                st.push(dummy1.data);
+                dummy1=dummy1.next;
+                m=m+1;
+                limit=limit-1;
+            }
+            while(m>0)
+            {
+                dummy2.data=st.pop();
+                dummy2=dummy2.next;
+                m=m-1;
+            }
+
+        }
+
+       // System.out.println(len+" "+limit);
     }
 
 
