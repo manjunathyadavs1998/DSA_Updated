@@ -338,8 +338,8 @@ public class arrays {
     public  static  int findsqrt(int n)
     {
         int low=0;
-        int high=10;
-        //int high=Integer.MAX_VALUE;
+        //int high=10;
+        int high=Integer.MIN_VALUE;
         while(low<high)
         {
             int mid=(low+high)/2;
