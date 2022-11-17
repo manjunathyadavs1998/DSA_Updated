@@ -21,5 +21,6 @@ public class strings {
         return true;
 
     }
+    //https://practice.geeksforgeeks.org/problems/valid-substring0624/1
 
 }
