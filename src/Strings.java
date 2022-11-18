@@ -3,11 +3,12 @@ import java.util.Scanner;
 public class Strings {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-//        String str1=sc.next();
+       String str1=sc.next();
 //        String str2=sc.next();
         //System.out.println(printfirstoccurence(str1, str2));
         char ch='z';
         System.out.println((int)(ch-'a'));
+        int n=str1.length();
 
     }
 //    static int printfirstoccurence(String str1, String str2)

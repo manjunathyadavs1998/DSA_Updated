@@ -1,5 +1,6 @@
 package Strings;
 
+
 public class strings {
 
     public static boolean isValidAnagram(String str1, String str2)
@@ -21,6 +22,7 @@ public class strings {
         return true;
 
     }
-    //https://practice.geeksforgeeks.org/problems/valid-substring0624/1
+
+
 
 }
