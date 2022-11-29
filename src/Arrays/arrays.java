@@ -203,131 +203,109 @@ public class arrays {
 
 
     public static int findMaxDiff(int[] arr, int n) {
-        int min=arr[0];
-        int max_diff= Integer.MIN_VALUE;
+        int min = arr[0];
+        int max_diff = Integer.MIN_VALUE;
 
-        for(int i=1; i<n; i++)
-        {
+        for (int i = 1; i < n; i++) {
 
-            max_diff=Math.max(arr[i]-min, max_diff);
-            if(arr[i]<min)
-                min=arr[i];
+            max_diff = Math.max(arr[i] - min, max_diff);
+            if (arr[i] < min)
+                min = arr[i];
 
         }
-    if(max_diff<=0)
-        return -1;
-    return max_diff;
+        if (max_diff <= 0)
+            return -1;
+        return max_diff;
     }
 
-    public static int maxStockPrice(int[] arr, int n)
-    {
-        int max_profit=0;
-        for(int i=1; i<n; i++)
-        {
-            if(arr[i]>arr[i-1])
-            {
-                max_profit=max_profit+arr[i]-arr[i-1];
+    public static int maxStockPrice(int[] arr, int n) {
+        int max_profit = 0;
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > arr[i - 1]) {
+                max_profit = max_profit + arr[i] - arr[i - 1];
             }
         }
-        return  max_profit;
+        return max_profit;
     }
 
-    public static  int trappingRainWater(int[] arr, int n)
-    {
-        int left_max=arr[0];
-        int right_max=arr[n-1];
-        int i=0, j=n-1;
-        int res=0;
-        while(i<j)
-        {
-            left_max=Math.max(left_max, arr[i]);
-            right_max=Math.max(right_max, arr[j]);
-            if(left_max>right_max)
-            {
-                res+=right_max-arr[j];
+    public static int trappingRainWater(int[] arr, int n) {
+        int left_max = arr[0];
+        int right_max = arr[n - 1];
+        int i = 0, j = n - 1;
+        int res = 0;
+        while (i < j) {
+            left_max = Math.max(left_max, arr[i]);
+            right_max = Math.max(right_max, arr[j]);
+            if (left_max > right_max) {
+                res += right_max - arr[j];
                 j--;
-            }
-            else
-            {
-                res+=left_max-arr[i];
+            } else {
+                res += left_max - arr[i];
                 i++;
             }
         }
-        return  res;
+        return res;
     }
 
 
-    public static  int countMaxOnes(int[] arr, int n)
-    {
-       int res= Integer.MIN_VALUE;
-       int count=0;
-       for(int i=0; i<n; i++)
-       {
-           if(arr[i]==0)
-               count=0;
-           else
-           {
-               count++;
-               res=Math.max(res, count);
-           }
-       }
+    public static int countMaxOnes(int[] arr, int n) {
+        int res = Integer.MIN_VALUE;
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 0)
+                count = 0;
+            else {
+                count++;
+                res = Math.max(res, count);
+            }
+        }
 
         return res;
     }
 
 
-    public static int majorityElement(int[] arr, int n)
-    {
-        if(n==1)
+    public static int majorityElement(int[] arr, int n) {
+        if (n == 1)
             return arr[0];
-        HashMap<Integer, Integer>hm=new HashMap<>();
-        for(int x:arr)
-        {
-            if(!hm.containsKey(x))
-                hm.put(x,1);
-            else{
-                hm.put(x, hm.get(x)+1);
-                if(hm.get(x)>n/2)
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for (int x : arr) {
+            if (!hm.containsKey(x))
+                hm.put(x, 1);
+            else {
+                hm.put(x, hm.get(x) + 1);
+                if (hm.get(x) > n / 2)
                     return x;
             }
         }
         return -1;
     }
 
-    public static int maximumdistance(int[] arr, int n)
-    {
-        HashMap<Integer, Integer>hm=new HashMap<>();
-        int res=0;
-        for(int i=0; i<n; i++)
-        {
-            if(!hm.containsKey(arr[i]))
+    public static int maximumdistance(int[] arr, int n) {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            if (!hm.containsKey(arr[i]))
                 hm.put(arr[i], i);
-            else
-            {
-                int curr=i-hm.get(arr[i])+1;
-                res=Math.max(curr, res);
+            else {
+                int curr = i - hm.get(arr[i]) + 1;
+                res = Math.max(curr, res);
             }
 
         }
         return res;
     }
 
-    public static  int StockBuyandSell_2(int[] arr, int n)
-    {
-       if(n<=1)
-           return 0;
-        int max_profit=0;
-        int buy=arr[0];
-        for(int i=1; i<n; i++)
-        {
-            if(buy>arr[i])
-            {
-                buy=arr[i];
-            }
-            else
-            {
-                int curr_price=arr[i]-buy;
-                max_profit=Math.max(curr_price, max_profit);
+    public static int StockBuyandSell_2(int[] arr, int n) {
+        if (n <= 1)
+            return 0;
+        int max_profit = 0;
+        int buy = arr[0];
+        for (int i = 1; i < n; i++) {
+            if (buy > arr[i]) {
+                buy = arr[i];
+            } else {
+                int curr_price = arr[i] - buy;
+                max_profit = Math.max(curr_price, max_profit);
             }
 
         }
@@ -335,28 +313,106 @@ public class arrays {
 
     }
 
-    public  static  int findsqrt(int n)
-    {
-        int low=0;
+    public static int findsqrt(int n) {
+        int low = 0;
         //int high=10;
-        int high=Integer.MIN_VALUE;
-        while(low<high)
-        {
-            int mid=(low+high)/2;
-            if(mid*mid==n)
+        int high = Integer.MIN_VALUE;
+        while (low < high) {
+            int mid = (low + high) / 2;
+            if (mid * mid == n)
                 return mid;
-            else if (mid*mid>n) {
-                high=mid-1;
+            else if (mid * mid > n) {
+                high = mid - 1;
 
-            }
-            else
-                low=low+1;
+            } else
+                low = low + 1;
         }
         return 0;
     }
 
+    public static float findMedianOfSortedArrays(int[] arr1, int m, int[] arr2, int n) {
+        int[] temp = new int[m + n];
+        int k = 0;
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+
+            if (arr1[i] > arr2[j]) {
+                temp[k++] = arr2[j];
+                j++;
+            } else {
+                temp[k++] = arr1[i];
+                i++;
+            }
+        }
+        while (i < m) {
+            temp[k++] = arr1[i];
+            i++;
+        }
+        while (j < n) {
+            temp[k++] = arr2[j];
+            j++;
+        }
+
+        float res = 0;
+        int len = (temp.length - 1);
+        if (temp.length % 2 != 0)
+            res = temp[len / 2];
+        else
+            res = ((float) temp[len / 2] + temp[len + 1 / 2]) / 2;
+
+        return res;
 
 
+//        double res=0;
+//        for(int t=0; i<temp.length; t++) System.out.print(temp[t]+" ");
+//        int nn=temp.length-1;
+//        int dummy=nn/2;
+//        System.out.println("--------*****------------");
+//        System.out.println(temp[dummy]+" "+temp[dummy+1]);
+//        System.out.println((double)(temp[dummy]+temp[dummy+1])/2);
+//        System.out.println("--------*****------------");
+//        if(nn%2==0)
+//        {
+//            return (temp[dummy]+temp[dummy+1])/2;
+//        }
+//        else
+//            return temp[dummy]/2;
 
+    }
+
+    public static double findMedianOfSortedArrays1(int[] nums1, int[] nums2) {
+        int m = nums1.length;
+        int n = nums2.length;
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        int length = nums1.length + nums2.length;
+        int middle = length / 2;
+        int mid2 = 0;
+        int mid1 = 0;
+        while (i <= middle) {
+            mid1 = mid2;
+            if (j < m && k < n) {
+                if (nums1[j] < nums2[k]) {
+                    mid2 = nums1[j];
+                    j++;
+                } else {
+                    mid2 = nums2[k];
+                    k++;
+                }
+            } else if (j < m) {
+                mid2 = nums1[j];
+                j++;
+            } else {
+                mid2 = nums2[k];
+                k++;
+            }
+            i++;
+        }
+        double median = (length % 2 == 0) ? (mid1 + mid2) / 2.0 : mid2;
+        return median;
+
+
+    }
 }
 

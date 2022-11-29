@@ -84,4 +84,61 @@ public class BinarySearch_Impl {
 
 
     }
+
+    public static int searchInSortedArray(int[] arr, int n, int k)
+    {
+        int low =0, high=n-1;
+        while(low<high)
+        {
+            int mid=low+(high-low)/2;
+            if(arr[mid]==k)
+                return mid;
+            else if(arr[mid]>k)
+            {
+                if(arr[mid+1]==k)
+                    return mid+1;
+                else if(arr[mid+1]<k)
+                    low=mid+1;
+                else
+                    high=mid-1;
+
+            }
+            else if(arr[mid]<k) {
+                if (mid == 0) {
+                    if (arr[mid] == k)
+                        return mid;
+                    else
+                        return -1;
+
+                } else {
+                    if (arr[mid - 1] == k)
+                        return mid - 1;
+                    else if (arr[mid - 1] > k)
+                        high = mid - 1;
+                    else
+                        low = mid + 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public static int searchInsertPosition(int[] arr, int n, int k)
+    {
+        int low=0;
+        int high=n-1;
+        while(low<high)
+        {
+            int mid=low+(high-low)/2;
+            if(arr[mid]==k)
+                return mid;
+            else if(arr[mid]>k)
+            {
+                high=mid-1;
+            }
+            else
+                low=mid+1;
+        }
+        return low+1;
+    }
 }
