@@ -12,6 +12,7 @@ public class printPattern {
             arr[i] = sc.nextInt();
         System.out.println("Print Star Pattern");
         controller.printPattern(n, arr);
-        //ferrero rocher
+        //ferrero rocher3
+
     }
 }
