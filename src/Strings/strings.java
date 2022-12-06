@@ -1,6 +1,7 @@
 package Strings;
 
 
+import java.util.HashSet;
 import java.util.Stack;
 
 public class strings {
@@ -127,6 +128,29 @@ public class strings {
             }
         }
         return temp;
+    }
+
+    public static int longestSubstring(String str)
+    {
+        HashSet<Character>hashSet=new HashSet<>();
+        int count=0, max_count=0;
+        for(int i=0; i<str.length(); i++)
+        {
+            if(hashSet.contains(str.charAt(i)))
+            {
+                hashSet.clear();
+                count=0;
+                hashSet.add(str.charAt(i));
+                count++;
+            }
+            else
+            {
+                hashSet.add(str.charAt(i));
+                count++;
+                max_count=Math.max(max_count, count);
+            }
+        }
+        return max_count;
     }
 
 

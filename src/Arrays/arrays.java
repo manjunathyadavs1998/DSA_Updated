@@ -414,5 +414,21 @@ public class arrays {
 
 
     }
+
+    public static int majorityElement2(int[] arr, int n) {
+        if (n == 1)
+            return arr[0];
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for (int x : arr) {
+            if (!hm.containsKey(x))
+                hm.put(x, 1);
+            else {
+                hm.put(x, hm.get(x) + 1);
+                if (hm.get(x) > n / 2)
+                    return x;
+            }
+        }
+        return -1;
+    }
 }
 

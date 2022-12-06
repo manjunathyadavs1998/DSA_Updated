@@ -1,6 +1,8 @@
 package Recursion;
 
 public class Recursion {
+    static  long sum=0;
+
 
     public static  void printnum(int n)
     {
@@ -70,5 +72,19 @@ public class Recursion {
             return n;
         int res= fibonacci(n-1)+fibonacci(n-2);
         return res;
+    }
+
+    public static long sumOfSeries(long N) {
+        //long sum=0;
+        if(N<=0)
+            return 0;
+       sum=sum+(N*N*N);
+        sumOfSeries(N-1);
+
+        return  sum;
+
+
+        //return sum;
+
     }
 }
